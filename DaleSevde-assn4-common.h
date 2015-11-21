@@ -1,11 +1,15 @@
 #ifndef COMMON_H
 #define COMMON_H
 
-static char** Labels = {
- “Bubble”,
- “Insertion”,
- “Merge”,
- “Quick”
+#include <string>
+
+using namespace std;
+
+string Labels[] = {
+ "Bubble",
+ "Insertion",
+ "Merge",
+ "Quick"
 };
 
 enum Menu {
@@ -14,7 +18,7 @@ enum Menu {
  Merge,
  Quick,
  Exit
-}
+};
 
 //**************************************************************************
 //  FUNCTION:  main
@@ -24,7 +28,7 @@ enum Menu {
 //  OUTPUT:    Return Value: the exit status of the program
 //  IMPLEMENTED BY: Stewart 
 //**************************************************************************
-int main(int argc,char** argv)
+int main(int argc,char** argv);
 
 
 //**************************************************************************
@@ -34,7 +38,7 @@ int main(int argc,char** argv)
 //  OUTPUT:    Return Value: the choices picked by user
 //  IMPLEMENTED BY: Lindsay
 //**************************************************************************
-void  getInputChoiceSort(Menu& choice1,Menu& choice2)
+void  getInputChoiceSort(Menu& choice1,Menu& choice2);
 //**************************************************************************
 //  FUNCTION:  getInputChoiceInt
 //  DESCRIP:   get the input from user of how many times to run sort
@@ -43,7 +47,7 @@ void  getInputChoiceSort(Menu& choice1,Menu& choice2)
 //  OUTPUT:    Return Value: the choices picked by user
 //  IMPLEMENTED BY: Stewart
 //**************************************************************************
-int   getInputChoiceInt(int min, int max)
+int   getInputChoiceInt(int min, int max);
 
 
 //**************************************************************************
@@ -53,7 +57,7 @@ int   getInputChoiceInt(int min, int max)
 //  OUTPUT:    Return Value: the allocated array
 //  IMPLEMENTED BY: Lindsay
 //**************************************************************************
-int[] initArray(int size)
+int* initArray(int size);
 
 //**************************************************************************
 //  FUNCTION:  dellocArray
@@ -62,7 +66,7 @@ int[] initArray(int size)
 //  OUTPUT:    Return Value: n/a
 //  IMPLEMENTED BY: stewart
 //**************************************************************************
-void  dellocArray(int[])
+void  dellocArray(int[]);
 
 //**************************************************************************
 //  FUNCTION:  fillArrays
@@ -72,7 +76,7 @@ void  dellocArray(int[])
 //  OUTPUT:    Return Value: if it was succesful or not
 //  IMPLEMENTED BY: Lindsay
 //**************************************************************************
-bool  fillArrays(int[] array1,int[] array2) // will also call srand once
+bool  fillArrays(int array1[],int array2[]); // will also call srand once
 
 //**************************************************************************
 //  FUNCTION:  fillArray
@@ -81,7 +85,7 @@ bool  fillArrays(int[] array1,int[] array2) // will also call srand once
 //  OUTPUT:    Return Value: if it was succesful or not
 //  IMPLEMENTED BY: Lindsay
 //**************************************************************************
-bool  fillArray(int[] array)
+bool  fillArray(int array[]);
 
 // first two statements of function
 // int startTime, endTime, elapsedTime;
@@ -92,7 +96,7 @@ bool  fillArray(int[] array)
 // cout << "Bubble sort time " << elapsedTime << endl;
 // return elaposedTime;
 
-typedef time_t (*sortFunction)(int[] array)  // prototype for function pointer to sort function
+typedef time_t (*sortFunction)(int array[]);  // prototype for function pointer to sort function
 
 //**************************************************************************
 //  FUNCTION:  sortArrayBubble
@@ -101,7 +105,7 @@ typedef time_t (*sortFunction)(int[] array)  // prototype for function pointer t
 //  OUTPUT:    Return Value: time taken to 
 //  IMPLEMENTED BY: Lindsay
 //**************************************************************************
-time_t  sortArrayBubble(int[] array)      // i think these need to be references so they can be changed
+time_t  sortArrayBubble(int array[]);      // i think these need to be references so they can be changed
 
 //**************************************************************************
 //  FUNCTION:  sortArrayInsertion
@@ -110,7 +114,7 @@ time_t  sortArrayBubble(int[] array)      // i think these need to be references
 //  OUTPUT:    Return Value: time taken to 
 //  IMPLEMENTED BY: Stewart
 //**************************************************************************
-time_t  sortArrayInsertion(int[] array) // i think these need to be references so they can be changed
+time_t  sortArrayInsertion(int array[]); // i think these need to be references so they can be changed
 
 //**************************************************************************
 //  FUNCTION:  sortArrayMerge
@@ -119,7 +123,7 @@ time_t  sortArrayInsertion(int[] array) // i think these need to be references s
 //  OUTPUT:    Return Value: time taken to 
 //  IMPLEMENTED BY: Stewart
 //**************************************************************************
-time_t  sortArrayMerge(int[] array)  // i think these need to be references so they can be changed
+time_t  sortArrayMerge(int array[]);  // i think these need to be references so they can be changed
 
 //**************************************************************************
 //  FUNCTION:  sortArrayQuick
@@ -128,7 +132,7 @@ time_t  sortArrayMerge(int[] array)  // i think these need to be references so t
 //  OUTPUT:    Return Value: time taken to 
 //  IMPLEMENTED BY: Lindsay
 //**************************************************************************
-time_t  sortArrayQuick(int[] array)  // i think these need to be references so they can be changed
+time_t  sortArrayQuick(int array[]);  // i think these need to be references so they can be changed
 
 
 //**************************************************************************
@@ -138,7 +142,7 @@ time_t  sortArrayQuick(int[] array)  // i think these need to be references so t
 //  OUTPUT:    Return Value: if it is correctly sorted
 //  IMPLEMENTED BY: Stewart
 //**************************************************************************
-bool    verifySort(int[] array)
+bool    verifySort(int array[]);
 
 //**************************************************************************
 //  FUNCTION:  displayResults
@@ -148,7 +152,7 @@ bool    verifySort(int[] array)
 //  OUTPUT:    Return Value: n/a
 //  IMPLEMENTED BY: Lindsay
 //**************************************************************************
-void    displayResults(Menu sortType1, time_t sortTime1, Menu sortType2, time_t sortTime2)
+void    displayResults(Menu sortType1, time_t sortTime1, Menu sortType2, time_t sortTime2);
 
 /*
 Lindsay:
