@@ -16,15 +16,23 @@ using namespace std;
 //  IMPLEMENTED BY: Lindsay
 //**************************************************************************
 int* initArray(int size) {
-	int* array;
-	
-	return array;
+    int* array = NULL;
+    array = new int[size];
+    array[size] = {0};
+    
+    return array;
 }
 
+//**************************************************************************
+//  FUNCTION:  dellocArray
+//  DESCRIP:   delloc array used by program
+//  INPUT:     Parameters:  the array to delloc
+//  OUTPUT:    Return Value: n/a
+//  IMPLEMENTED BY: Lindsay
+//**************************************************************************
 void  dellocArray(int array[]) {
-	//delete array;
+	delete array;
 }
-
 
 //**************************************************************************
 //  FUNCTION:  fillArrays
@@ -35,9 +43,18 @@ void  dellocArray(int array[]) {
 //  IMPLEMENTED BY: Lindsay
 //**************************************************************************
 bool  fillArrays(int array1[],int array2[]) { // will call srand once
-  bool resp;
-  
-  
+    bool resp = false;
+    
+    if (resp == false) {
+        resp = fillArray(array1);
+        if (resp == true) {
+            resp = fillArray(array2);
+        }
+        else {
+            resp = false;
+        }
+    }
+    
   return resp;	
 }
 
@@ -49,19 +66,28 @@ bool  fillArrays(int array1[],int array2[]) { // will call srand once
 //  IMPLEMENTED BY: Lindsay
 //**************************************************************************
 bool  fillArray(int array[]) {
-	bool resp;
 	
+    bool resp;
+    int tempVariable;              //temporary storage for random integer
+    
+    // first two statements of function
+    int startTime, endTime, elapsedTime;
+    startTime = clock();
+    
+    //Generates random 100,000 random numbers between 1-30,000 and stores it
+    for (int countNums = 0; countNums < ARRAY_SIZE; countNums++) {
+        tempVariable = rand() % END_RANGE + 1;
+        array[countNums] = tempVariable;
+    }
+    
+    
+    // last three statements
+    endTime = clock();
+    elapsedTime = endTime - startTime;
+    cout << "Bubble sort time " << elapsedTime << endl;
+    
 	return resp;
 }
-
-// first two statements of function
-// int startTime, endTime, elapsedTime;
-// startTime = clock();
-// last three statements
-// endTime = clock();
-// elapsedTime = endTime - startTime;
-// cout << "Bubble sort time " << elapsedTime << endl;
-// return elaposedTime;
 
 //**************************************************************************
 //  FUNCTION:  sortArrayBubble

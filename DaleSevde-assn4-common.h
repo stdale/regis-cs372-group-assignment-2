@@ -12,6 +12,7 @@ using namespace std;
 #define MIN_RUNS 1
 #define MAX_RUNS INT_MAX
 #define ARRAY_SIZE 100000
+#define END_RANGE 30000
 
 /*
 string Labels[] = {
