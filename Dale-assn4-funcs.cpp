@@ -20,9 +20,19 @@ int   getInputChoiceInt(int min, int max) {
 	return resp;
 }
 
-void  dellocArray(int array[]) {
-	//delete array;
+//**************************************************************************
+//  FUNCTION:  getInputChoiceSort
+//  DESCRIP:   get the input from user of which sort algo's to use, or exit
+//  INPUT:     Parameters:	references to output params
+//  OUTPUT:    Return Value: the choices picked by user
+//  IMPLEMENTED BY: Lindsay
+//**************************************************************************
+void  getInputChoiceSort(Menu& choice1,Menu& choice2) {
+	
 }
+
+
+
 
 
 

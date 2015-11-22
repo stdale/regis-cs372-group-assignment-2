@@ -6,17 +6,6 @@
 
 using namespace std;
 
-//**************************************************************************
-//  FUNCTION:  getInputChoiceSort
-//  DESCRIP:   get the input from user of which sort algo's to use, or exit
-//  INPUT:     Parameters:	references to output params
-//  OUTPUT:    Return Value: the choices picked by user
-//  IMPLEMENTED BY: Lindsay
-//**************************************************************************
-void  getInputChoiceSort(Menu& choice1,Menu& choice2) {
-	
-}
-
 
 
 //**************************************************************************
@@ -32,6 +21,9 @@ int* initArray(int size) {
 	return array;
 }
 
+void  dellocArray(int array[]) {
+	//delete array;
+}
 
 
 //**************************************************************************
@@ -82,6 +74,7 @@ time_t  sortArrayBubble(int array[]){
 	time_t startTime, endTime, elapsedTime;
     startTime = clock();
 
+
 	endTime = clock();
 	elapsedTime = endTime - startTime;
 	cout << "Bubble sort time " << elapsedTime << endl;
@@ -101,6 +94,7 @@ time_t  sortArrayBubble(int array[]){
 time_t  sortArrayQuick(int array[]) {
 	time_t startTime, endTime, elapsedTime;
     startTime = clock();
+
 
 	endTime = clock();
 	elapsedTime = endTime - startTime;

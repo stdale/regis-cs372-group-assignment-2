@@ -3,6 +3,8 @@
 
 #include <ctime>
 
+#include "DaleSevde-assn4-common.h"
+
 //**************************************************************************
 //  FUNCTION:  getInputChoiceInt
 //  DESCRIP:   get the input from user of how many times to run sort
@@ -14,13 +16,15 @@
 int   getInputChoiceInt(int min, int max);
 
 //**************************************************************************
-//  FUNCTION:  dellocArray
-//  DESCRIP:   delloc array used by program
-//  INPUT:     Parameters:  the array to delloc
-//  OUTPUT:    Return Value: n/a
-//  IMPLEMENTED BY: stewart
+//  FUNCTION:  getInputChoiceSort
+//  DESCRIP:   get the input from user of which sort algo's to use, or exit
+//  INPUT:     Parameters:	references to output params
+//  OUTPUT:    Return Value: the choices picked by user
+//  IMPLEMENTED BY: Lindsay
 //**************************************************************************
-void  dellocArray(int[]);
+void  getInputChoiceSort(Menu& choice1,Menu& choice2);
+
+
 
 
 

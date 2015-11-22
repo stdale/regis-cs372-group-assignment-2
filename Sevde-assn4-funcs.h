@@ -3,14 +3,6 @@
 
 #include "DaleSevde-assn4-common.h"
 
-//**************************************************************************
-//  FUNCTION:  getInputChoiceSort
-//  DESCRIP:   get the input from user of which sort algo's to use, or exit
-//  INPUT:     Parameters:	references to output params
-//  OUTPUT:    Return Value: the choices picked by user
-//  IMPLEMENTED BY: Lindsay
-//**************************************************************************
-void  getInputChoiceSort(Menu& choice1,Menu& choice2);
 
 
 
@@ -24,6 +16,14 @@ void  getInputChoiceSort(Menu& choice1,Menu& choice2);
 int* initArray(int size);
 
 
+//**************************************************************************
+//  FUNCTION:  dellocArray
+//  DESCRIP:   delloc array used by program
+//  INPUT:     Parameters:  the array to delloc
+//  OUTPUT:    Return Value: n/a
+//  IMPLEMENTED BY: stewart
+//**************************************************************************
+void  dellocArray(int[]);
 
 //**************************************************************************
 //  FUNCTION:  fillArrays
@@ -33,7 +33,7 @@ int* initArray(int size);
 //  OUTPUT:    Return Value: if it was succesful or not
 //  IMPLEMENTED BY: Lindsay
 //**************************************************************************
-bool  fillArrays(int array1[],int array2[]); // will also call srand once
+bool  fillArrays(int array1[],int array2[]); 
 
 //**************************************************************************
 //  FUNCTION:  fillArray

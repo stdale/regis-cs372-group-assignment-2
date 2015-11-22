@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 #include <ctime>
 
 #include "DaleSevde-assn4-common.h"
@@ -15,6 +16,7 @@
 //  IMPLEMENTED BY: Stewart 
 //**************************************************************************
 int main(int argc, char** argv) {
+ // variables for the program run
  Menu sortChoice1 = Bubble;
  Menu sortChoice2 = Bubble;
  sortFunction sortF1,sortF2;
@@ -22,6 +24,9 @@ int main(int argc, char** argv) {
  time_t *timeList1,*timeList2;
  int    *array1,*array2;
  bool continueloop = true;
+ 
+ srand(time(NULL));
+ 
  while(continueloop) {
  	getInputChoiceSort(sortChoice1,sortChoice2);
  	runs = getInputChoiceInt(MIN_RUNS,MAX_RUNS);
@@ -56,22 +61,34 @@ int main(int argc, char** argv) {
 	  		sortF2 = &sortArrayQuick;
 	  		break;
 	  }
+	  
+	  // this is an array of time_t
       timeList1  = new time_t[runs];
       timeList2  = new time_t[runs];
+      
+      
       for(int i = 0;i<runs;i++) {
-      	array1 = initArray(ARRAY_SIZE);
+      	
+		array1 = initArray(ARRAY_SIZE);
       	array2 = initArray(ARRAY_SIZE);
-      	fillArrays(array1,array2);
-      	timeList1[i] = (*sortF1)(array1);
+      	
+		fillArrays(array1,array2);
+      	
+		timeList1[i] = (*sortF1)(array1);
       	timeList2[i] = (*sortF2)(array2);
+      	
       	verifySort(array1,ARRAY_SIZE);
       	verifySort(array2,ARRAY_SIZE);
+      	
       	dellocArray(array1);
       	dellocArray(array2);
 	  }
+	  
 	  displayResults(sortChoice1,timeList1,sortChoice2,timeList2);
+	  
 	  delete timeList1;
 	  delete timeList2;
+	  
 	}else{
 	  continueloop = false;
 	}
