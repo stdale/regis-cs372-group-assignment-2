@@ -7,12 +7,21 @@ using namespace std;
 
 int   getInputChoiceInt(int min, int max) {
 	int resp;
-	
+	bool continueLoop = true;
+	while(continueLoop ) {
+	 cout << "Enter the number of times to repeat each sort (1 or more): ";
+	 cin >> resp;
+	 if(resp >= min && resp <= max) {
+	 	continueLoop = false;
+	 }else{
+	 	cout << "Please enter a valid number between " << min << " and " << max << "." << endl;
+	 }
+    }
 	return resp;
 }
 
 void  dellocArray(int array[]) {
-	delete array;
+	//delete array;
 }
 
 
@@ -69,8 +78,15 @@ time_t  sortArrayMerge(int array[]) {
 //  OUTPUT:    Return Value: if it is correctly sorted
 //  IMPLEMENTED BY: Stewart
 //**************************************************************************
-bool    verifySort(int array[]) {
-	bool resp;
-	
+bool    verifySort(int array[], int size) {
+	bool resp = true;
+	bool continueLoop;
+	for(int i=1;i<size && continueLoop;i++) {
+		if(array[i-1] > array[i]) {
+		 resp = false;
+		 continueLoop = false;
+	    }
+	}
 	return resp;
 }
+

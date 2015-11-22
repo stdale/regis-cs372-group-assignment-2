@@ -60,7 +60,7 @@ time_t  sortArrayMerge(int array[]);  // i think these need to be references so 
 //  OUTPUT:    Return Value: if it is correctly sorted
 //  IMPLEMENTED BY: Stewart
 //**************************************************************************
-bool    verifySort(int array[]);
+bool    verifySort(int array[],int size);
 
 
 #endif

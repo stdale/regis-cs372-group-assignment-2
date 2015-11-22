@@ -64,8 +64,8 @@ int main(int argc, char** argv) {
       	fillArrays(array1,array2);
       	timeList1[i] = (*sortF1)(array1);
       	timeList2[i] = (*sortF2)(array2);
-      	verifySort(array1);
-      	verifySort(array2);
+      	verifySort(array1,ARRAY_SIZE);
+      	verifySort(array2,ARRAY_SIZE);
       	dellocArray(array1);
       	dellocArray(array2);
 	  }
