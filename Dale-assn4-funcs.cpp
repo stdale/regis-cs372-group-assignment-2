@@ -103,6 +103,19 @@ time_t  sortArrayInsertion(int array[]) {
 	time_t startTime, endTime, elapsedTime;
     startTime = clock();
 
+	int j,holder;
+		
+	for (int i = 0; i < ARRAY_SIZE; i++){
+		j = i;
+		
+		while (j > 0 && array[j] < array[j-1]){
+		  holder = array[j];
+		  array[j] = array[j-1];
+		  array[j-1] = holder;
+		  j--;
+	  }
+	}
+
 	endTime = clock();
 	elapsedTime = endTime - startTime;
 	cout << "Insertion sort time " << elapsedTime << endl;
@@ -140,8 +153,8 @@ bool    verifySort(int array[], int size) {
 	bool continueLoop;
 	for(int i=1;i<size && continueLoop;i++) {
 		if(array[i-1] > array[i]) {
-		 resp = false;
-		 continueLoop = false;
+		  resp = false;
+		  continueLoop = false;
 	    }
 	}
 	return resp;

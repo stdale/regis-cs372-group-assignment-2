@@ -150,6 +150,7 @@ time_t  sortArrayQuick(int array[]) {
 //**************************************************************************
 void    displayResults(Menu sortType1, time_t sortTime1[], Menu sortType2, time_t sortTime2[]) {
 	
+
     cout << "---------------" << endl;
     cout << fixed << setprecision(1) << showpoint;
     

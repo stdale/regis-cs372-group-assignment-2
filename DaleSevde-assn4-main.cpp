@@ -61,7 +61,6 @@ int main(int argc, char** argv) {
 	  		sortF2 = &sortArrayQuick;
 	  		break;
 	  }
-	  cout << sortChoice1 << " " << sortChoice2 << endl;
 	  // this is an array of time_t
       timeList1  = new time_t[runs];
       timeList2  = new time_t[runs];
@@ -77,8 +76,17 @@ int main(int argc, char** argv) {
 		timeList1[i] = (*sortF1)(array1);
       	timeList2[i] = (*sortF2)(array2);
       	
-      	verifySort(array1,ARRAY_SIZE);
-      	verifySort(array2,ARRAY_SIZE);
+      	bool verified1 = verifySort(array1,ARRAY_SIZE),
+      	     verified2 = verifySort(array2,ARRAY_SIZE);
+      	if( verified1 && verified2) {
+      	  cout << "Sorts validated." << endl;	
+		}else{
+			if(!verified1) {
+				cout << "Validation of " << Labels[sortChoice1] << " failed!" << endl; 
+			}else{
+				cout << "Validation of " << Labels[sortChoice2] << " failed!" << endl; 
+			}
+		}
       	
       	dellocArray(array1);
       	dellocArray(array2);

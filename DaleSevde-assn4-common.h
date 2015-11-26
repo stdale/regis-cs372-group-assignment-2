@@ -14,21 +14,19 @@ using namespace std;
 #define ARRAY_SIZE 100000
 #define END_RANGE 30000
 
-/*
-string Labels[] = {
- "Bubble",
- "Insertion",
- "Merge",
- "Quick"
-};
-*/
-
 enum Menu {
  Bubble = 0,
  Insertion,
  Merge,
  Quick,
  Exit
+};
+
+const string Labels[] = {
+      "Bubble",
+      "Insertion",
+      "Merge",
+      "Quick"
 };
 
 typedef time_t (*sortFunction)(int array[]);  // prototype for function pointer to sort function
