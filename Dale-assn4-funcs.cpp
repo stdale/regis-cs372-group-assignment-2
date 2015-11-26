@@ -99,7 +99,7 @@ void  getInputChoiceSort(Menu& choice1,Menu& choice2) {
 //  OUTPUT:    Return Value: time taken to 
 //  IMPLEMENTED BY: Stewart
 //**************************************************************************
-time_t  sortArrayInsertion(int array[]) {
+time_t  sortArrayInsertion(int array[],int size) {
 	time_t startTime, endTime, elapsedTime;
     startTime = clock();
 
@@ -130,7 +130,7 @@ time_t  sortArrayInsertion(int array[]) {
 //  OUTPUT:    Return Value: time taken to 
 //  IMPLEMENTED BY: Stewart
 //**************************************************************************
-time_t  sortArrayMerge(int array[]) {
+time_t  sortArrayMerge(int array[],int size) {
 	time_t startTime, endTime, elapsedTime;
     startTime = clock();
 
@@ -157,6 +157,8 @@ bool    verifySort(int array[], int size) {
 		  continueLoop = false;
 	    }
 	}
+	//for(int i=0;i<size;i++) 
+	// cout << array[i] << " ";
 	return resp;
 }
 

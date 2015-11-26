@@ -44,7 +44,7 @@ void  getInputChoiceSort(Menu& choice1,Menu& choice2);
 //  OUTPUT:    Return Value: time taken to 
 //  IMPLEMENTED BY: Stewart
 //**************************************************************************
-time_t  sortArrayInsertion(int array[]); // i think these need to be references so they can be changed
+time_t  sortArrayInsertion(int array[],int size); // i think these need to be references so they can be changed
 
 
 //**************************************************************************
@@ -54,7 +54,7 @@ time_t  sortArrayInsertion(int array[]); // i think these need to be references 
 //  OUTPUT:    Return Value: time taken to 
 //  IMPLEMENTED BY: Stewart
 //**************************************************************************
-time_t  sortArrayMerge(int array[]);  // i think these need to be references so they can be changed
+time_t  sortArrayMerge(int array[],int size);  // i think these need to be references so they can be changed
 
 
 //**************************************************************************

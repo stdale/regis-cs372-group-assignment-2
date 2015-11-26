@@ -55,7 +55,7 @@ bool  fillArrays(int array1[],int array2[]) { // will call srand once
         tempVariable1 = rand() % END_RANGE + 1;
         array1[countNums1] = tempVariable1;
     }
-    
+    //memcpy(array1,array2,ARRAY_SIZE)
     for (int countNums2 = 0; countNums2 < ARRAY_SIZE; countNums2++) {
         tempVariable2 = array1[countNums2];
         array2[countNums2] = tempVariable2;
@@ -87,7 +87,7 @@ bool  fillArray(int array[]) {
 //  OUTPUT:    Return Value: time taken to 
 //  IMPLEMENTED BY: Lindsay
 //**************************************************************************
-time_t  sortArrayBubble(int array[]){
+time_t  sortArrayBubble(int array[],int size){
 	
     //variable section
     int lastIdx = 0;
@@ -127,7 +127,7 @@ time_t  sortArrayBubble(int array[]){
 //  OUTPUT:    Return Value: time taken to 
 //  IMPLEMENTED BY: Lindsay
 //**************************************************************************
-time_t  sortArrayQuick(int array[]) {
+time_t  sortArrayQuick(int array[], int size) {
 	time_t startTime, endTime, elapsedTime;
     startTime = clock();
 
@@ -190,7 +190,7 @@ void    displayResults(Menu sortType1, time_t sortTime1[], Menu sortType2, time_
         << " clock ticks on average" << endl;
     }
     
-    
+    // cout << setw() << fixed << Label[sortType1] << " clock ticks on average"
     cout << endl << "Press any key to continue . . ." << endl;
 }
 

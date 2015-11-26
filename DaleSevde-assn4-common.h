@@ -29,6 +29,6 @@ const string Labels[] = {
       "Quick"
 };
 
-typedef time_t (*sortFunction)(int array[]);  // prototype for function pointer to sort function
+typedef time_t (*sortFunction)(int array[],int size);  // prototype for function pointer to sort function
 
 #endif

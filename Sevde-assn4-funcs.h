@@ -62,7 +62,7 @@ bool  fillArray(int array[]);
 //  OUTPUT:    Return Value: time taken to 
 //  IMPLEMENTED BY: Lindsay
 //**************************************************************************
-time_t  sortArrayBubble(int array[]);      // i think these need to be references so they can be changed
+time_t  sortArrayBubble(int array[], int size);      // i think these need to be references so they can be changed
 
 
 
@@ -74,7 +74,7 @@ time_t  sortArrayBubble(int array[]);      // i think these need to be reference
 //  OUTPUT:    Return Value: time taken to 
 //  IMPLEMENTED BY: Lindsay
 //**************************************************************************
-time_t  sortArrayQuick(int array[]);  // i think these need to be references so they can be changed
+time_t  sortArrayQuick(int array[],int size);  // i think these need to be references so they can be changed
 
 
 
