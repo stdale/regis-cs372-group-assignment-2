@@ -53,7 +53,6 @@ bool  fillArrays(int array1[],int array2[]) { // will call srand once
     for (int countNums1 = 0; countNums1 < ARRAY_SIZE; countNums1++) {
         tempVariable1 = rand() % END_RANGE + 1;
         array1[countNums1] = tempVariable1;
-        cout << array1[countNums1] << endl;
     }
     
     for (int countNums2 = 0; countNums2 < ARRAY_SIZE; countNums2++) {
@@ -88,18 +87,37 @@ bool  fillArray(int array[]) {
 //  IMPLEMENTED BY: Lindsay
 //**************************************************************************
 time_t  sortArrayBubble(int array[]){
-	time_t startTime, endTime, elapsedTime;
+	
+    //variable section
+    int lastIdx = 0;
+    int temp = 0;
+    bool listSorted = false;
+    time_t startTime, endTime, elapsedTime;
     startTime = clock();
-
-
+    
+    lastIdx = ARRAY_SIZE - 1;
+    
+    while (listSorted != true) {
+        listSorted = true;
+        int currentIdx = 0;
+        while (currentIdx < lastIdx) {
+            while (array[currentIdx] > array[currentIdx + 1]) {
+                temp = array[currentIdx];
+                array[currentIdx] = array[currentIdx + 1];
+                array[currentIdx + 1] = temp;
+                listSorted = false;
+            }
+            currentIdx++;
+        }
+        lastIdx--;
+    }
+    
 	endTime = clock();
 	elapsedTime = endTime - startTime;
 	cout << "Bubble sort time " << elapsedTime << endl;
-	return elapsedTime;	
+	
+    return elapsedTime;
 }
-
-
-
 
 //**************************************************************************
 //  FUNCTION:  sortArrayQuick
