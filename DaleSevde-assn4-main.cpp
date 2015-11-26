@@ -61,7 +61,7 @@ int main(int argc, char** argv) {
 	  		sortF2 = &sortArrayQuick;
 	  		break;
 	  }
-	  
+	  cout << sortChoice1 << " " << sortChoice2 << endl;
 	  // this is an array of time_t
       timeList1  = new time_t[runs];
       timeList2  = new time_t[runs];

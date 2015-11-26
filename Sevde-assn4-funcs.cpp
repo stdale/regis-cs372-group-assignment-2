@@ -4,6 +4,7 @@
 #include <iomanip>
 #include <ctime>
 #include <string>
+#include <cstdlib>
 
 using namespace std;
 

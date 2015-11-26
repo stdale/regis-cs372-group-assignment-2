@@ -28,13 +28,60 @@ int   getInputChoiceInt(int min, int max) {
 //  IMPLEMENTED BY: Lindsay
 //**************************************************************************
 void  getInputChoiceSort(Menu& choice1,Menu& choice2) {
-	
+  char ch1='a',ch2='a';
+  bool continueLoop = true;
+  while(continueLoop) {
+  	cout << "Choose two sorts you wish to compare:" << endl
+  	     << "\tB = Bubble sort" << endl
+  	     << "\tI = Insertion sort" << endl
+  	     << "\tM = Merge sort"  << endl
+  	     << "\tQ = Quick sort"  << endl
+  	     << "\tE = Exit program" << endl << endl
+  	     << "Enter two letter choices (or EE to exit): ";
+  	cin >> ch1;
+  	cin >> ch2;
+  	if((ch1 == 'B' || ch1 == 'I' || ch1 == 'M' || ch1 == 'Q' || ch1 == 'E') &&
+	   (ch2 == 'B' || ch2 == 'I' || ch2 == 'M' || ch2 == 'Q' || ch2 == 'E'))  {
+	    continueLoop = false;   	
+	}else{
+		cout << "Invalid option, please enter B|I|M|Q|E as valid option." << endl;
+	}
+  }
+  switch(ch1) {
+  	case 'B':
+  		choice1 = Bubble;
+  		break;
+  	case 'I':
+  		choice1 = Insertion;
+  		break;
+  	case 'M':
+  		choice1 = Merge;
+  		break;
+  	case 'Q':
+  		choice1 = Quick;
+  		break;
+  	case 'E':
+  		choice1 = Exit;
+  		break;
+  }
+  switch(ch2) {
+  	case 'B':
+  		choice2 = Bubble;
+  		break;
+  	case 'I':
+  		choice2 = Insertion;
+  		break;
+  	case 'M':
+  		choice2 = Merge;
+  		break;
+  	case 'Q':
+  		choice2 = Quick;
+  		break;
+  	case 'E':
+  		choice2 = Exit;
+  		break;
+  }
 }
-
-
-
-
-
 
 // first two statements of function
 // int startTime, endTime, elapsedTime;
