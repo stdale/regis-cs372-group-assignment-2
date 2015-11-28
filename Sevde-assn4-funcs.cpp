@@ -58,7 +58,7 @@ void dellocArray(int array[]) {
 //**************************************************************************
 bool fillArrays(int array1[],int array2[]) {
     
-    bool resp = false;
+    bool resp = false;                  //validates if filling array is successful
     int tempVariable1;                  //tempory storage to fill array
     int tempVariable2;                  //tempory storage to fill array
     
