@@ -14,6 +14,8 @@ using namespace std;
 #define ARRAY_SIZE 100000
 #define END_RANGE 30000
 
+const int BY_TWO = 2;
+
 enum Menu {
  Bubble = 0,
  Insertion,

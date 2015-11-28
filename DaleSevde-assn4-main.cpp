@@ -92,7 +92,7 @@ int main(int argc, char** argv) {
       	dellocArray(array2);
 	  }
 	  
-	  displayResults(sortChoice1,timeList1,sortChoice2,timeList2);
+	  displayResults(sortChoice1,timeList1,sortChoice2,timeList2, runs);
 	  
 	  delete timeList1;
 	  delete timeList2;

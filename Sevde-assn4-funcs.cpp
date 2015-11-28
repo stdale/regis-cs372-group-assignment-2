@@ -1,3 +1,17 @@
+//******************************************************************************
+//  FILE NAME: Sevde-assn4-funcs.cpp
+//  Description: This file contains ADT function definitions for
+//               DaleSevde-assn4-main.cpp
+//  Functions: initArray - init array (allocate memory) for use by program
+//             dellocArray - delloc array used by program
+//             fillArrays -
+//             sortArrayBubble - function to sort array using bubble sort
+//             sortArrayQuick - function to call quick_sort and track time to
+//                           sort array
+//             quick_Sort - function to sort array using quick sort
+//             displayResults - function to display results of two sorts
+//******************************************************************************
+
 #include "Sevde-assn4-funcs.h"
 
 #include <iostream>
@@ -7,8 +21,6 @@
 #include <cstdlib>
 
 using namespace std;
-
-
 
 //**************************************************************************
 //  FUNCTION:  initArray
@@ -32,8 +44,8 @@ int* initArray(int size) {
 //  OUTPUT:    Return Value: n/a
 //  IMPLEMENTED BY: Lindsay
 //**************************************************************************
-void  dellocArray(int array[]) {
-	delete array;
+void dellocArray(int array[]) {
+    delete array;
 }
 
 //**************************************************************************
@@ -44,59 +56,39 @@ void  dellocArray(int array[]) {
 //  OUTPUT:    Return Value: if it was succesful or not
 //  IMPLEMENTED BY: Lindsay
 //**************************************************************************
-bool  fillArrays(int array1[],int array2[]) { // will call srand once
-   
-    bool resp = false;
-    int tempVariable1;              //temporary storage for random integer
-    int tempVariable2;
+bool fillArrays(int array1[],int array2[]) {
     
-    //Generates random 100,000 random numbers between 1-30,000 and stores it
+    bool resp = false;
+    int tempVariable1;                  //tempory storage to fill array
+    int tempVariable2;                  //tempory storage to fill array
+    
     for (int countNums1 = 0; countNums1 < ARRAY_SIZE; countNums1++) {
         tempVariable1 = rand() % END_RANGE + 1;
         array1[countNums1] = tempVariable1;
     }
-    //memcpy(array1,array2,ARRAY_SIZE)
     for (int countNums2 = 0; countNums2 < ARRAY_SIZE; countNums2++) {
         tempVariable2 = array1[countNums2];
         array2[countNums2] = tempVariable2;
     }
     
-  return resp;	
-}
-
-//**************************************************************************
-//  FUNCTION:  fillArray
-//  DESCRIP:   fills provide array with values between 1 and 30,000
-//  INPUT:     Parameters:  the array to fill
-//  OUTPUT:    Return Value: if it was succesful or not
-//  IMPLEMENTED BY: Lindsay
-//**************************************************************************
-bool  fillArray(int array[]) {
-	
-    bool resp;
-    
-
-    
-	return resp;
+    return resp;
 }
 
 //**************************************************************************
 //  FUNCTION:  sortArrayBubble
 //  DESCRIP:   function to sort array using bubble sort
 //  INPUT:     Parameters:  the array to sort
-//  OUTPUT:    Return Value: time taken to 
+//  OUTPUT:    Return Value: time taken to
 //  IMPLEMENTED BY: Lindsay
 //**************************************************************************
-time_t  sortArrayBubble(int array[],int size){
-	
+time_t sortArrayBubble(int array[], int size){
+    
     //variable section
-    int lastIdx = 0;
-    int temp = 0;
-    bool listSorted = false;
+    int lastIdx = size - 1;                  //storage for last index in array
+    int temp;                                //tempory storage used for swaping values
+    bool listSorted = false;                 //validates if list has been sorted or not
     time_t startTime, endTime, elapsedTime;
     startTime = clock();
-    
-    lastIdx = ARRAY_SIZE - 1;
     
     while (listSorted != true) {
         listSorted = true;
@@ -113,32 +105,74 @@ time_t  sortArrayBubble(int array[],int size){
         lastIdx--;
     }
     
-	endTime = clock();
-	elapsedTime = endTime - startTime;
-	cout << "Bubble sort time " << elapsedTime << endl;
-	
+    endTime = clock();
+    elapsedTime = endTime - startTime;
+    cout << "Bubble sort time " << elapsedTime << endl;
+    
     return elapsedTime;
 }
 
 //**************************************************************************
 //  FUNCTION:  sortArrayQuick
-//  DESCRIP:   function to sort array using quick sort
+//  DESCRIP:   function to call quick_sort and track time to sort array
 //  INPUT:     Parameters:  the array to sort
-//  OUTPUT:    Return Value: time taken to 
+//  OUTPUT:    Return Value: time taken to
 //  IMPLEMENTED BY: Lindsay
 //**************************************************************************
-time_t  sortArrayQuick(int array[], int size) {
-	time_t startTime, endTime, elapsedTime;
+time_t sortArrayQuick(int array[], int size) {
+    
+    //variable section
+    int lastIdx = size - 1;                  //storage for last index in array
+    time_t startTime, endTime, elapsedTime;
     startTime = clock();
-
-
-	endTime = clock();
-	elapsedTime = endTime - startTime;
-	cout << "Quick sort time " << elapsedTime << endl;
-	return elapsedTime; 
+    
+    quick_Sort(array, 0, lastIdx);
+    
+    endTime = clock();
+    elapsedTime = endTime - startTime;
+    cout << "Quick sort time " << elapsedTime << endl;
+    return elapsedTime;
 }
 
-
+//**************************************************************************
+//  FUNCTION:  quick_Sort
+//  DESCRIP:   function to sort array using quick sort
+//  INPUT:     Parameters:  the array to sort, left index and right index of
+//                          array
+//  IMPLEMENTED BY: Lindsay
+//**************************************************************************
+void quick_Sort(int array[], int left, int right) {
+    
+    //variable section
+    int pivot = array[(left + right) / BY_TWO];  //storage for pivot
+    int temp;                                    //tempory storage used for swaping values
+    int tempLeft = left;                         //tempory storage for left index
+    int tempRight = right;                       //tempory storage for right index
+    
+    while (tempLeft <= tempRight) {
+        while (array[tempLeft] < pivot) {
+            tempLeft++;
+        }
+        while (array[tempRight] > pivot) {
+            tempRight--;
+        }
+        
+        if (tempLeft <= tempRight) {
+            temp = array[tempLeft];
+            array[tempLeft] = array[tempRight];
+            array[tempRight] = temp;
+            tempLeft++;
+            tempRight--;
+        }
+    }
+    
+    if (left < tempRight) {
+        quick_Sort(array, left, tempRight);
+    }
+    if (tempLeft < right) {
+        quick_Sort(array, tempLeft, right);
+    }
+}
 
 //**************************************************************************
 //  FUNCTION:  displayResults
@@ -148,49 +182,32 @@ time_t  sortArrayQuick(int array[], int size) {
 //  OUTPUT:    Return Value: n/a
 //  IMPLEMENTED BY: Lindsay
 //**************************************************************************
-void    displayResults(Menu sortType1, time_t sortTime1[], Menu sortType2, time_t sortTime2[]) {
-	
-
+void displayResults(Menu sortType1, time_t sortTime1[], Menu sortType2,
+                    time_t sortTime2[], int numOfRuns) {
+    
+    //variable section
+    double averageTime1;
+    double averageTime2;
+    double sum1;
+    double sum2;
+    
+    for (int num = 0; num < numOfRuns; num++) {
+        sum1 += sortTime1[num];
+    }
+    averageTime1 = sum1 / numOfRuns;
+    
+    for (int num = 0; num < numOfRuns; num++) {
+        sum2 += sortTime2[num];
+    }
+    averageTime2 = sum2 / numOfRuns;
+    
     cout << "---------------" << endl;
-    cout << fixed << setprecision(1) << showpoint;
+    cout << setprecision(1) << showpoint;
     
-    //CHANGE THESE once we have the string Labels working
-    if (sortType1 == 0) {
-        cout << setw(21) << "Boubble Sort " << sortTime1
-             << " clock ticks on average" << endl;
-    }
-    else if (sortType1 == 1) {
-        cout << setw(21) << "Insertion Sort " << sortTime1
-             << " clock ticks on average"<< endl;
-    }
-    else if (sortType1 == 2) {
-        cout << setw(21) << "Merge Sort " << sortTime1
-             << " clock ticks on average" << endl;
-    }
-    else if (sortType1 == 3) {
-        cout << setw(21) << "Quick Sort " << sortTime1
-             << " clock ticks on average" << endl;
-    }
-    
-    
-    if (sortType2 == 0) {
-        cout << setw(21) << "Boubble Sort " << sortTime2
-        << " clock ticks on average" << endl;
-    }
-    else if (sortType2 == 1) {
-        cout << setw(21) << "Insertion Sort " << sortTime2
-        << " clock ticks on average"<< endl;
-    }
-    else if (sortType2 == 2) {
-        cout << setw(21) << "Merge Sort " << sortTime2
-        << " clock ticks on average" << endl;
-    }
-    else if (sortType2 == 3) {
-        cout << setw(21) << "Quick Sort " << sortTime2
-        << " clock ticks on average" << endl;
-    }
-    
-    // cout << setw() << fixed << Label[sortType1] << " clock ticks on average"
-    cout << endl << "Press any key to continue . . ." << endl;
+    cout << setw(15) << fixed << Labels[sortType1] << " Sort" << setw(15)
+    << averageTime1 << " clock ticks on average";
+    cout << endl << setw(15) << fixed << Labels[sortType2] << " Sort" << setw(15)
+    << averageTime2 << " clock ticks on average";
+    cout << endl << endl << "Press any key to continue . . ." << endl << endl;
 }
 
