@@ -10,7 +10,7 @@
 //                           sort array
 //             quick_Sort - function to sort array using quick sort
 //             displayResults - function to display results of two sorts
-//****************************************************************************** //test
+//******************************************************************************
 
 #include "Sevde-assn4-funcs.h"
 
