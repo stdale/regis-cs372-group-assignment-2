@@ -40,6 +40,8 @@ void  getInputChoiceSort(Menu& choice1,Menu& choice2) {
   	     << "Enter two letter choices (or EE to exit): ";
   	cin >> ch1;
   	cin >> ch2;
+  	ch1 = toupper(ch1);
+  	ch2 = toupper(ch2);
   	if((ch1 == 'B' || ch1 == 'I' || ch1 == 'M' || ch1 == 'Q' || ch1 == 'E') &&
 	   (ch2 == 'B' || ch2 == 'I' || ch2 == 'M' || ch2 == 'Q' || ch2 == 'E'))  {
 	    continueLoop = false;   	
@@ -123,6 +125,52 @@ time_t  sortArrayInsertion(int array[],int size) {
 }
 
 
+void mergesort(int a[], int low, int high) {
+    int mid;
+    //cout << "merge sort start" << endl;
+    if (low < high)    {
+        mid=(low+high)/2;
+        //cout << "calling mergeSort(a," << low << "," << mid << ")" << endl;
+        mergesort(a,low,mid);
+        //cout << "calling mergeSort(a," << mid+1 << "," << high << ")" << endl;
+        mergesort(a,mid+1,high);
+        merge(a,low,high,mid);
+    }
+}
+
+void merge(int a[], int low, int high, int mid) {
+    int i, j, k;
+	int c[ARRAY_SIZE];
+    i = low;
+    k = low;
+    j = mid + 1;
+    while (i <= mid && j <= high) {
+        if (a[i] < a[j]) {
+            c[k] = a[i];
+            k++,
+            i++;
+        }else{
+            c[k] = a[j];
+            k++;
+            j++;
+        }
+    }
+    while (i <= mid) {
+        c[k] = a[i];
+        k++;
+        i++;
+    }
+    while (j <= high) {
+        c[k] = a[j];
+        k++;
+        j++;
+    }
+    for (i = low; i < k; i++){
+        a[i] = c[i];
+    }
+}
+
+
 //**************************************************************************
 //  FUNCTION:  sortArrayMerge
 //  DESCRIP:   function to sort array using merge sort
@@ -133,7 +181,7 @@ time_t  sortArrayInsertion(int array[],int size) {
 time_t  sortArrayMerge(int array[],int size) {
 	time_t startTime, endTime, elapsedTime;
     startTime = clock();
-
+    mergesort(array,0,ARRAY_SIZE);
 	endTime = clock();
 	elapsedTime = endTime - startTime;
 	cout << "Merge sort time " << elapsedTime << endl;

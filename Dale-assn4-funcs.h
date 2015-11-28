@@ -47,6 +47,9 @@ void  getInputChoiceSort(Menu& choice1,Menu& choice2);
 time_t  sortArrayInsertion(int array[],int size); // i think these need to be references so they can be changed
 
 
+void merge(int a[],int low, int high, int mid);
+void mergesort(int a[], int low, int high);
+
 //**************************************************************************
 //  FUNCTION:  sortArrayMerge
 //  DESCRIP:   function to sort array using merge sort
@@ -55,7 +58,6 @@ time_t  sortArrayInsertion(int array[],int size); // i think these need to be re
 //  IMPLEMENTED BY: Stewart
 //**************************************************************************
 time_t  sortArrayMerge(int array[],int size);  // i think these need to be references so they can be changed
-
 
 //**************************************************************************
 //  FUNCTION:  verifySort
