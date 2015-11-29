@@ -1,3 +1,12 @@
+//******************************************************************************
+//  CODE FILENAME: DaleSevde-assn4-main.cpp
+//  DESCRIPTION: This program compares how long it takes to sort a list, using
+//               various sorting methods; Bubble Sort, Insertion Sort, Merge
+//               Sort and Quick Sort.
+//  CLASS/TERM: CS372_X70 2015 Fall 8 week 2
+//  DESIGNER: Stewart Dale and Lindsay Sevde
+//  FUNCTIONS:
+//******************************************************************************
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
