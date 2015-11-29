@@ -1,6 +1,7 @@
 #include "Dale-assn4-funcs.h"
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 
 using namespace std;
@@ -120,7 +121,7 @@ time_t  sortArrayInsertion(int array[],int size) {
 
 	endTime = clock();
 	elapsedTime = endTime - startTime;
-	cout << "Insertion sort time " << elapsedTime << endl;
+	cout << setw(28) << "Insertion sort time " << elapsedTime << endl;
 	return elapsedTime;
 }
 
@@ -184,7 +185,7 @@ time_t  sortArrayMerge(int array[],int size) {
     mergesort(array,0,ARRAY_SIZE);
 	endTime = clock();
 	elapsedTime = endTime - startTime;
-	cout << "Merge sort time " << elapsedTime << endl;
+	cout << setw(24) << "Merge sort time " << elapsedTime << endl; 
 	return elapsedTime;
 }
 

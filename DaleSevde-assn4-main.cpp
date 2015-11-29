@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <cstdlib>
 #include <ctime>
 
@@ -66,20 +67,22 @@ int main(int argc, char** argv) {
       timeList2  = new time_t[runs];
       
       
-      for(int i = 0;i<runs;i++) {
+      for(int i = 0; i < runs; i++) {
       	
 		array1 = initArray(ARRAY_SIZE);
       	array2 = initArray(ARRAY_SIZE);
       	
 		fillArrays(array1,array2);
       	
+        cout << endl << "Starting sort #" << i + 1 << endl;
+          
 		timeList1[i] = (*sortF1)(array1,ARRAY_SIZE);
       	timeList2[i] = (*sortF2)(array2,ARRAY_SIZE);
       	
       	bool verified1 = verifySort(array1,ARRAY_SIZE),
       	     verified2 = verifySort(array2,ARRAY_SIZE);
       	if( verified1 && verified2) {
-      	  cout << "Sorts validated." << endl;	
+      	  cout << setw(24) << "Sorts validated.";
 		}else{
 			if(!verified1) {
 				cout << "Validation of " << Labels[sortChoice1] << " failed!" << endl; 

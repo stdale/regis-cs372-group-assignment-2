@@ -107,7 +107,7 @@ time_t sortArrayBubble(int array[], int size){
     
     endTime = clock();
     elapsedTime = endTime - startTime;
-    cout << "Bubble sort time " << elapsedTime << endl;
+    cout << setw(25) << "Bubble sort time " << elapsedTime << endl;
     
     return elapsedTime;
 }
@@ -130,7 +130,7 @@ time_t sortArrayQuick(int array[], int size) {
     
     endTime = clock();
     elapsedTime = endTime - startTime;
-    cout << "Quick sort time " << elapsedTime << endl;
+    cout << setw(24) << "Quick sort time " << elapsedTime << endl;
     return elapsedTime;
 }
 
@@ -201,6 +201,7 @@ void displayResults(Menu sortType1, time_t sortTime1[], Menu sortType2,
     }
     averageTime2 = sum2 / numOfRuns;
     
+    cout << endl << endl << "SORTING RESULTS" << endl;
     cout << "---------------" << endl;
     cout << setprecision(1) << showpoint;
     
