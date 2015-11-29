@@ -23,13 +23,13 @@
 
 using namespace std;
 
-//**************************************************************************
+//******************************************************************************
 //  FUNCTION:  initArray
 //  DESCRIP:   init array (allocate memory) for use by program
 //  INPUT:     Parameters:  size - the size of array to create
 //  OUTPUT:    Return Value: array - the allocated array
 //  IMPLEMENTED BY: Lindsay
-//**************************************************************************
+//******************************************************************************
 int* initArray(int size) {
     int* array = NULL;
     array = new int[size];
@@ -37,24 +37,24 @@ int* initArray(int size) {
     
     return array;
 }
-//**************************************************************************
+//******************************************************************************
 //  FUNCTION:  dellocArray
 //  DESCRIP:   delloc array used by program
 //  INPUT:     Parameters:  array[] - the array to delloc
 //  OUTPUT:    Return Value: n/a
 //  IMPLEMENTED BY: Lindsay
-//**************************************************************************
+//******************************************************************************
 void dellocArray(int array[]) {
     delete array;
 }
-//**************************************************************************
+//******************************************************************************
 //  FUNCTION:  fillArrays
 //  DESCRIP:   fills provide arrays with values between 1 and 30,000
 //             wrapper function that calls srand before filling arrays
 //  INPUT:     Parameters:  the arrays to fill
 //  OUTPUT:    Return Value: n/a
 //  IMPLEMENTED BY: Lindsay
-//**************************************************************************
+//******************************************************************************
 void fillArrays(int array1[],int array2[]) {
     
     //variable section
@@ -71,14 +71,14 @@ void fillArrays(int array1[],int array2[]) {
     }
     return;
 }
-//**************************************************************************
+//******************************************************************************
 //  FUNCTION:  sortArrayBubble
 //  DESCRIP:   function to sort array using bubble sort
 //  INPUT:     Parameters:  array[] - the array to sort
 //                          size - size of array
 //  OUTPUT:    Return Value: elapsedTime - time taken to sort
 //  IMPLEMENTED BY: Lindsay
-//**************************************************************************
+//******************************************************************************
 time_t sortArrayBubble(int array[], int size){
     
     //variable section
@@ -109,7 +109,7 @@ time_t sortArrayBubble(int array[], int size){
     
     return elapsedTime;
 }
-//**************************************************************************
+//******************************************************************************
 //  FUNCTION:  sortArrayQuick
 //  DESCRIP:   function to call quick_sort and track time to sort array
 //  INPUT:     Parameters:  array[] - the array to sort
@@ -117,7 +117,7 @@ time_t sortArrayBubble(int array[], int size){
 //  OUTPUT:    Return Value: elapsedTime - time taken to sort
 //  CALLS TO:  quick_Sort
 //  IMPLEMENTED BY: Lindsay
-//**************************************************************************
+//******************************************************************************
 time_t sortArrayQuick(int array[], int size) {
     
     //variable section
@@ -132,7 +132,7 @@ time_t sortArrayQuick(int array[], int size) {
     cout << setw(24) << "Quick sort time " << elapsedTime << endl;
     return elapsedTime;
 }
-//**************************************************************************
+//******************************************************************************
 //  FUNCTION:  quick_Sort
 //  DESCRIP:   function to sort array using quick sort
 //  INPUT:     Parameters: array[] - the array to sort
@@ -141,7 +141,7 @@ time_t sortArrayQuick(int array[], int size) {
 //  OUTPUT:    Return Value: n/a
 //  CALLS TO:  quick_Sort
 //  IMPLEMENTED BY: Lindsay
-//**************************************************************************
+//******************************************************************************
 void quick_Sort(int array[], int left, int right) {
     
     //variable section
@@ -175,7 +175,7 @@ void quick_Sort(int array[], int left, int right) {
     }
     return;
 }
-//**************************************************************************
+//******************************************************************************
 //  FUNCTION:  displayResults
 //  DESCRIP:   function to display results of two sorts
 //  INPUT:     Parameters:  sortType1 - the type of sort
@@ -184,7 +184,7 @@ void quick_Sort(int array[], int left, int right) {
 //                          sortTime2 - time taken to sort
 //  OUTPUT:    Return Value: n/a
 //  IMPLEMENTED BY: Lindsay
-//**************************************************************************
+//******************************************************************************
 void displayResults(Menu sortType1, time_t sortTime1[], Menu sortType2,
                     time_t sortTime2[], int numOfRuns) {
     
