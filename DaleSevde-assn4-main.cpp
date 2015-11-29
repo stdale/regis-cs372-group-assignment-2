@@ -66,7 +66,6 @@ int main(int argc, char** argv) {
       timeList1  = new time_t[runs];
       timeList2  = new time_t[runs];
       
-      
       for(int i = 0; i < runs; i++) {
       	
 		array1 = initArray(ARRAY_SIZE);
