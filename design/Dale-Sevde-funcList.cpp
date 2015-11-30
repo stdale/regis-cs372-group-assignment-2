@@ -91,16 +91,7 @@ void  dellocArray(int[])
 //  OUTPUT:    Return Value: if it was succesful or not
 //  IMPLEMENTED BY: Lindsay
 //**************************************************************************
-bool  fillArrays(int[] array1,int[] array2) // will also call srand once
-
-//**************************************************************************
-//  FUNCTION:  fillArray
-//  DESCRIP:   fills provide array with values between 1 and 30,000
-//  INPUT:     Parameters:  the array to fill
-//  OUTPUT:    Return Value: if it was succesful or not
-//  IMPLEMENTED BY: Lindsay
-//**************************************************************************
-bool  fillArray(int[] array)
+void  fillArrays(int[] array1,int[] array2) // will also call srand once
 
 // first two statements of function
 // int startTime, endTime, elapsedTime;
