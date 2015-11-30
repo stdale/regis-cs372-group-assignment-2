@@ -47,7 +47,26 @@ void  getInputChoiceSort(Menu& choice1,Menu& choice2);
 time_t  sortArrayInsertion(int array[],int size); // i think these need to be references so they can be changed
 
 
+//**************************************************************************
+//  FUNCTION:  merge
+//  DESCRIP:   function that merges the two sorted arrays
+//             into one array
+//  INPUT:     Parameters:  the array to sort
+//                          the low poing of the array we are sorting
+//                          the high point of the array we are sorting
+//                          the index of middle of the array we are merging, so we now which is top half and bottom half
+//  OUTPUT:    Return Value: N/A
+//  IMPLEMENTED BY: Stewart
+//**************************************************************************
 void merge(int a[],int low, int high, int mid);
+
+//**************************************************************************
+//  FUNCTION:  sortArrayMerge
+//  DESCRIP:   function to sort array using merge sort
+//  INPUT:     Parameters:  the array to sort
+//  OUTPUT:    Return Value: time taken to 
+//  IMPLEMENTED BY: Stewart
+//**************************************************************************
 void mergesort(int a[], int low, int high);
 
 //**************************************************************************
