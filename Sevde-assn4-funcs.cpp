@@ -4,14 +4,15 @@
 //               DaleSevde-assn4-main.cpp
 //  Functions: initArray - init array (allocate memory) for use by program
 //             dellocArray - delloc array used by program
-//             fillArrays -
+//             fillArrays - fills provide arrays with values between 1 and
+//                          30,000 wrapper function that calls srand before
+//                          filling arrays
 //             sortArrayBubble - function to sort array using bubble sort
 //             sortArrayQuick - function to call quick_sort and track time to
 //                           sort array
 //             quick_Sort - function to sort array using quick sort
 //             displayResults - function to display results of two sorts
 //******************************************************************************
-
 #include "Sevde-assn4-funcs.h"
 
 #include <iostream>
@@ -22,13 +23,13 @@
 
 using namespace std;
 
-//**************************************************************************
+//******************************************************************************
 //  FUNCTION:  initArray
 //  DESCRIP:   init array (allocate memory) for use by program
-//  INPUT:     Parameters:  the size of array to create
-//  OUTPUT:    Return Value: the allocated array
+//  INPUT:     Parameters:  size - the size of array to create
+//  OUTPUT:    Return Value: array - the allocated array
 //  IMPLEMENTED BY: Lindsay
-//**************************************************************************
+//******************************************************************************
 int* initArray(int size) {
     int* array = NULL;
     array = new int[size];
@@ -36,29 +37,27 @@ int* initArray(int size) {
     
     return array;
 }
-
-//**************************************************************************
+//******************************************************************************
 //  FUNCTION:  dellocArray
 //  DESCRIP:   delloc array used by program
-//  INPUT:     Parameters:  the array to delloc
+//  INPUT:     Parameters:  array[] - the array to delloc
 //  OUTPUT:    Return Value: n/a
 //  IMPLEMENTED BY: Lindsay
-//**************************************************************************
+//******************************************************************************
 void dellocArray(int array[]) {
     delete array;
 }
-
-//**************************************************************************
+//******************************************************************************
 //  FUNCTION:  fillArrays
 //  DESCRIP:   fills provide arrays with values between 1 and 30,000
 //             wrapper function that calls srand before filling arrays
 //  INPUT:     Parameters:  the arrays to fill
-//  OUTPUT:    Return Value: if it was succesful or not
+//  OUTPUT:    Return Value: n/a
 //  IMPLEMENTED BY: Lindsay
-//**************************************************************************
-bool fillArrays(int array1[],int array2[]) {
+//******************************************************************************
+void fillArrays(int array1[],int array2[]) {
     
-    bool resp = false;                  //validates if filling array is successful
+    //variable section
     int tempVariable1;                  //tempory storage to fill array
     int tempVariable2;                  //tempory storage to fill array
     
@@ -70,17 +69,16 @@ bool fillArrays(int array1[],int array2[]) {
         tempVariable2 = array1[countNums2];
         array2[countNums2] = tempVariable2;
     }
-    
-    return resp;
+    return;
 }
-
-//**************************************************************************
+//******************************************************************************
 //  FUNCTION:  sortArrayBubble
 //  DESCRIP:   function to sort array using bubble sort
-//  INPUT:     Parameters:  the array to sort
-//  OUTPUT:    Return Value: time taken to
+//  INPUT:     Parameters:  array[] - the array to sort
+//                          size - size of array
+//  OUTPUT:    Return Value: elapsedTime - time taken to sort
 //  IMPLEMENTED BY: Lindsay
-//**************************************************************************
+//******************************************************************************
 time_t sortArrayBubble(int array[], int size){
     
     //variable section
@@ -111,14 +109,15 @@ time_t sortArrayBubble(int array[], int size){
     
     return elapsedTime;
 }
-
-//**************************************************************************
+//******************************************************************************
 //  FUNCTION:  sortArrayQuick
 //  DESCRIP:   function to call quick_sort and track time to sort array
-//  INPUT:     Parameters:  the array to sort
-//  OUTPUT:    Return Value: time taken to
+//  INPUT:     Parameters:  array[] - the array to sort
+//                          size - size of array
+//  OUTPUT:    Return Value: elapsedTime - time taken to sort
+//  CALLS TO:  quick_Sort
 //  IMPLEMENTED BY: Lindsay
-//**************************************************************************
+//******************************************************************************
 time_t sortArrayQuick(int array[], int size) {
     
     //variable section
@@ -133,14 +132,16 @@ time_t sortArrayQuick(int array[], int size) {
     cout << setw(24) << "Quick sort time " << elapsedTime << endl;
     return elapsedTime;
 }
-
-//**************************************************************************
+//******************************************************************************
 //  FUNCTION:  quick_Sort
 //  DESCRIP:   function to sort array using quick sort
-//  INPUT:     Parameters:  the array to sort, left index and right index of
-//                          array
+//  INPUT:     Parameters: array[] - the array to sort
+//                         left - most left index in array
+//                         right - last index in array
+//  OUTPUT:    Return Value: n/a
+//  CALLS TO:  quick_Sort
 //  IMPLEMENTED BY: Lindsay
-//**************************************************************************
+//******************************************************************************
 void quick_Sort(int array[], int left, int right) {
     
     //variable section
@@ -172,24 +173,26 @@ void quick_Sort(int array[], int left, int right) {
     if (tempLeft < right) {
         quick_Sort(array, tempLeft, right);
     }
+    return;
 }
-
-//**************************************************************************
+//******************************************************************************
 //  FUNCTION:  displayResults
 //  DESCRIP:   function to display results of two sorts
-//  INPUT:     Parameters:  the type of sort
-//                          time taken to sort
+//  INPUT:     Parameters:  sortType1 - the type of sort
+//                          sortTime1 - time taken to sort
+//                          sortType2 - the type of sort
+//                          sortTime2 - time taken to sort
 //  OUTPUT:    Return Value: n/a
 //  IMPLEMENTED BY: Lindsay
-//**************************************************************************
+//******************************************************************************
 void displayResults(Menu sortType1, time_t sortTime1[], Menu sortType2,
                     time_t sortTime2[], int numOfRuns) {
     
     //variable section
-    double averageTime1;
-    double averageTime2;
-    double sum1;
-    double sum2;
+    double averageTime1;                //average sorting time
+    double averageTime2;                //average sorting time
+    double sum1;                        //storage for the sum of sorting times
+    double sum2;                        //storage for the sum of sorting times
     
     for (int num = 0; num < numOfRuns; num++) {
         sum1 += sortTime1[num];
@@ -206,9 +209,10 @@ void displayResults(Menu sortType1, time_t sortTime1[], Menu sortType2,
     cout << setprecision(1) << showpoint;
     
     cout << setw(15) << fixed << Labels[sortType1] << " Sort" << setw(15)
-    << averageTime1 << " clock ticks on average";
-    cout << endl << setw(15) << fixed << Labels[sortType2] << " Sort" << setw(15)
-    << averageTime2 << " clock ticks on average";
-    cout << endl << endl << "Press any key to continue . . ." << endl << endl;
+         << averageTime1 << " clock ticks on average";
+    cout << endl << setw(15) << fixed << Labels[sortType2] << " Sort"
+         << setw(15) << averageTime2 << " clock ticks on average";
+    cout << endl << endl << "Press any key to continue . . ." << endl
+         << endl;
+    return;
 }
-

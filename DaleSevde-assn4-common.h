@@ -1,3 +1,9 @@
+//******************************************************************************
+//  FILE NAME:	DaleSevde-assn4-common.h
+//  DESCRIPTION: This file contains the ADT structure definitionsand constant
+//               defintions
+//******************************************************************************
+
 #ifndef MYCOMMON_H
 #define MYCOMMON_H
 
