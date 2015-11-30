@@ -26,7 +26,7 @@ int   getInputChoiceInt(int min, int max) {
 //  DESCRIP:   get the input from user of which sort algo's to use, or exit
 //  INPUT:     Parameters:	references to output params
 //  OUTPUT:    Return Value: the choices picked by user
-//  IMPLEMENTED BY: Lindsay
+//  IMPLEMENTED BY: Stewart
 //**************************************************************************
 void  getInputChoiceSort(Menu& choice1,Menu& choice2) {
   char ch1='a',ch2='a';
